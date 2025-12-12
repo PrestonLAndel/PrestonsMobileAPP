@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PrestonsApp">
 
+        <!-- VIEW IMAGE ACTIVITY -->
+        <activity
+            android:name=".ViewImageActivity"
+            android:exported="false" />
+
         <!-- SECOND ACTIVITY -->
         <activity
             android:name=".SecondActivity"

@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button buttonExplicit;
     private Button buttonImplicit;
+    private Button buttonViewImageActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +20,9 @@ public class MainActivity extends AppCompatActivity {
 
         buttonExplicit = findViewById(R.id.buttonExplicit);
         buttonImplicit = findViewById(R.id.buttonImplicit);
+        buttonViewImageActivity = findViewById(R.id.buttonViewImageActivity);
 
-        // Explicit Intent: directly specify SecondActivity
+        // Explicit Intent: directly go to SecondActivity
         buttonExplicit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,13 +32,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Implicit Intent: use a custom action string that SecondActivity listens for
+        // Implicit Intent: use custom action handled by SecondActivity
         buttonImplicit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent implicitIntent =
                         new Intent("com.example.prestonsapp.ACTION_SHOW_CHALLENGES");
                 startActivity(implicitIntent);
+            }
+        });
+
+        // Open the 3rd activity (ViewImageActivity)
+        buttonViewImageActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewImageIntent =
+                        new Intent(MainActivity.this, ViewImageActivity.class);
+                startActivity(viewImageIntent);
             }
         });
     }
